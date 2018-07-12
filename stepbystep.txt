@@ -1,0 +1,5 @@
+
+1. Project Detail
+2. Use Cases
+define database schema
+Make migrations
