@@ -1,0 +1,79 @@
+CREATE TABLE `users` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(255) NOT NULL,
+	`email` varchar(255) NOT NULL UNIQUE,
+	`password` varchar(60) NOT NULL,
+	`user_role_id` int NOT NULL,
+	`status` bool NOT NULL,
+	`create_at` TIMESTAMP(60) NOT NULL,
+	`updated_at` TIMESTAMP(60) NOT NULL,
+	`delete_at` TIMESTAMP(60),
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `roles` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`role_name` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `student_informations` (
+	`student_user_id` int NOT NULL,
+	`teacher_user_id` int NOT NULL
+);
+
+CREATE TABLE `posts` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`author_id` int NOT NULL,
+	`post_heading` longblob NOT NULL,
+	`content` longtext NOT NULL,
+	`created_at` TIMESTAMP NOT NULL,
+	`updated_at` TIMESTAMP NOT NULL,
+	`delete_at` TIMESTAMP NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `readers` (
+	`post_id` int NOT NULL,
+	`reader_id` int NOT NULL
+);
+
+CREATE TABLE `user_details` (
+	`id` int NOT NULL,
+	`adress` varchar(255) NOT NULL,
+	`postal_code` varchar(15) NOT NULL,
+	`mobile` varchar(15),
+	`create_at` TIMESTAMP NOT NULL,
+	`updated_at` TIMESTAMP NOT NULL,
+	`delete_at` TIMESTAMP NOT NULL
+);
+
+CREATE TABLE `role_permissions` (
+	`role_id` int NOT NULL,
+	`permission_id` int NOT NULL
+);
+
+CREATE TABLE `permissions` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`permission_name` varchar(30) NOT NULL UNIQUE,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `users` ADD CONSTRAINT `users_fk0` FOREIGN KEY (`user_role_id`) REFERENCES `roles`(`id`);
+
+ALTER TABLE `student_informations` ADD CONSTRAINT `student_informations_fk0` FOREIGN KEY (`student_user_id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `student_informations` ADD CONSTRAINT `student_informations_fk1` FOREIGN KEY (`teacher_user_id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `posts` ADD CONSTRAINT `posts_fk0` FOREIGN KEY (`author_id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `readers` ADD CONSTRAINT `readers_fk0` FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`);
+
+ALTER TABLE `readers` ADD CONSTRAINT `readers_fk1` FOREIGN KEY (`reader_id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `user_details` ADD CONSTRAINT `user_details_fk0` FOREIGN KEY (`id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `role_permissions` ADD CONSTRAINT `role_permissions_fk0` FOREIGN KEY (`role_id`) REFERENCES `roles`(`id`);
+
+ALTER TABLE `role_permissions` ADD CONSTRAINT `role_permissions_fk1` FOREIGN KEY (`permission_id`) REFERENCES `permissions`(`id`);
+
