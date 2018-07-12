@@ -1,5 +1,10 @@
 
 1. Project Detail
 2. Use Cases
-define database schema
-Make migrations
+3. define database schema
+4. Make migrations
+5. make Models
+6. Define relationships between tables
+7. Make controller
+8. Make view
+9. Testing
