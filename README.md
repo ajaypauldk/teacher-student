@@ -1,28 +1,27 @@
-# teacher-student
-school-system
-Teacher Student System
+# Laravel PHP Framework
 
-System Details:
+[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-• Login/Logout
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Admin
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-• When logged in, admin can see everything in the system
-• Can create, update, view, activate/deactivate and delete a teacher
-• Send an email to the new created teacher with its login credential
-• Can create, update, view, activate/deactivate and delete a student
+## Official Documentation
 
-Teachers
+Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-• when logged in into the system, he/she can only see his/her profile 
-• the teacher should only see a list of his/her own students
-• ability to approve/disapprove a student registration 
-• send an email to the student if the registration is approved/disapproved
+## Contributing
 
-Students
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-• register to the system with the teacher information they are under 
-• will receive an email confirmation after registration 
-• will receive another email once the registration is approved/disapproved 
-• if approved, the student can log in into the system, but he/she should only be able to see his information
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
