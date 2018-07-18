@@ -15,7 +15,7 @@ class StudentInformation extends Model
     protected $dates = ['deleted_at'];
     protected $fillable = ['student_user_id', 'teacher_user_id', 'delete_at'];
 
-    public function students(){
+    public function teacher(){
     	return $this->belongsTo(User::class,'teacher_user_id','id');
     }
 

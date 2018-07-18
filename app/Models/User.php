@@ -5,6 +5,8 @@ namespace App\\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Role;
+use App\Models\Post;
+use App\Models\StudentInformation;
 
 class User extends Authenticatable
 {
@@ -27,5 +29,13 @@ class User extends Authenticatable
     
     public function role(){
         return $this->belongsTo(Role::class,'user_role_id', 'id');
+    }
+    
+    public function posts(){
+        return $this->hasMany(Post::class, 'id', 'author_id');
+    }
+
+    public function students(){
+        return $this->hanMany(StudentInformation::class,'id','teacher_user_id');
     }
 }
