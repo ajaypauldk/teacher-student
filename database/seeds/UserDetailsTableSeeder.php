@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class UserDetailsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +12,8 @@ class UserDetailsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+        DB::table('user_details')->truncate();
         DB::table('user_details')->insert([
         	'id'=>1,
         	'address' => 'Rugvænget 12',
